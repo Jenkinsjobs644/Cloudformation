@@ -13,4 +13,4 @@ Resources:
           VolumeType: gp2
           Iops: 100
           DeleteOnTermination: true
-          VolumeSize: 20
+          VolumeSize: 12
