@@ -1,0 +1,16 @@
+AWSTemplateFormatVersionn: "2010-09-09"
+Description: "Create an Ubuntu instnace"
+Resources:
+  UbuntuInstance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      ImageId: "ami-2f726546"
+      InstanceType: t2.micro
+      BlockDeviceMappings:
+      -
+        DeviceNName: /dev/sda
+        Ebs:
+          VolumeType: gp2
+          Iops: 100
+          DeleteOnTermination: true
+          VolumeSize: 10
