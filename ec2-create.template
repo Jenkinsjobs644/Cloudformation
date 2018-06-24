@@ -88,8 +88,9 @@ Resources:
           ToPort: "80"
           CidrIp: "0.0.0.0/0"
       Tags:
-        Key: "Name"
-        Value: "testwebserversecuritygroup"
+        -
+          Key: "Name"
+          Value: "testwebserversecuritygroup"
 Outputs:
   ServerDns:
     Value: !GetAtt
