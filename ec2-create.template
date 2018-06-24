@@ -9,7 +9,7 @@ Resources:
       InstanceType: "t2.micro"
       BlockDeviceMappings:
       -
-        DeviceName: "/dev/sda"
+        DeviceName: "/dev/sdm"
         Ebs:
           VolumeType: "io1"
           Iops: "100"
