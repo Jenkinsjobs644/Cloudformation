@@ -1,5 +1,8 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: "Create an Ubuntu instnace in aws"
+Parameters:
+  pCreationDate:
+    Type: String
 Resources:
   MyInstance:
     Type: "AWS::EC2::Instance"
@@ -15,3 +18,10 @@ Resources:
           Iops: "100"
           DeleteOnTermination: "true"
           VolumeSize: "20"
+      Tags:
+        -
+          Key: "Name"
+          Value: "Testec2-1"
+        -
+          Key: "Created"
+          Value: !Ref pCreationDate
