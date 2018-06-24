@@ -20,13 +20,13 @@ Resources:
       KeyName: "imsubbu"
       InstanceType: "t2.micro"
       BlockDeviceMappings:
-      -
-        DeviceName: "/dev/sdm"
-        Ebs:
-          VolumeType: "io1"
-          Iops: "100"
-          DeleteOnTermination: "true"
-          VolumeSize: "20"
+        -
+          DeviceName: "/dev/sdm"
+          Ebs:
+            VolumeType: "io1"
+            Iops: "100"
+            DeleteOnTermination: "true"
+            VolumeSize: "20"
       Tags:
         -
           Key: "Name"
