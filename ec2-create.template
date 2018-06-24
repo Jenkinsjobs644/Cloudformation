@@ -14,4 +14,4 @@ Resources:
           VolumeType: "io1"
           Iops: "100"
           DeleteOnTermination: "true"
-          VolumeSize: "18"
+          VolumeSize: "19"
