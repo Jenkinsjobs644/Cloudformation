@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: "Create an Ubuntu instnace"
+Description: "Create an Ubuntu instnace in aws"
 Resources:
   UbuntuInstance:
     Type: "AWS::EC2::Instance"
