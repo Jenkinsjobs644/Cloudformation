@@ -6,12 +6,12 @@ Resources:
     Properties:
       ImageId: "ami-e251209a"
       KeyName: "imsubbu"
-      InstanceType: t2.micro
+      InstanceType: "t2.micro"
       BlockDeviceMappings:
       -
-        DeviceNName: /dev/sda
+        DeviceName: "/dev/sda"
         Ebs:
-          VolumeType: gp2
-          Iops: 100
-          DeleteOnTermination: true
-          VolumeSize: 15
+          VolumeType: "io1"
+          Iops: "100"
+          DeleteOnTermination: "true"
+          VolumeSize: "15"
