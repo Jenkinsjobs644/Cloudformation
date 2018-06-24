@@ -50,3 +50,8 @@ Resources:
           FromPort: "22"
           ToPort: "22"
           CidrIp: "107.77.213.137/32"
+Outputs:
+  ServerDns:
+    Value: !GetAtt
+      - MyInstance
+      - PrivateDnsName
