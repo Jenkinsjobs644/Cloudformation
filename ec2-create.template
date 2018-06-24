@@ -37,8 +37,9 @@ Resources:
     Type: "AWS::EC2::SecurityGroup"
     Properties:
       GroupDescription: Enable SSH access
+      GroupName: "TestSecurityGroup"
       SecurityGroupIngress:
         - IpProtocol: "tcp"
           FromPort: "22"
           ToPort: "22"
-          CidrIp: "0.0.0.0/0"
+          CidrIp: "0107.77.213.137/32
