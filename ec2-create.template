@@ -1,10 +1,11 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: "Create an Ubuntu instnace in aws"
 Resources:
-  UbuntuInstance:
+  MyInstance:
     Type: "AWS::EC2::Instance"
     Properties:
-      ImageId: "ami-2f726546"
+      ImageId: "ami-e251209a"
+      KeyName: "imsubbu"
       InstanceType: t2.micro
       BlockDeviceMappings:
       -
