@@ -3,11 +3,20 @@ Description: "Create an Ubuntu instnace in aws"
 Parameters:
   pCreationDate:
     Type: String
+Mappings:
+  RegionMap:
+    us-west-2: 
+      AMI: ami-e251209a
+    us-west-1: 
+      AMI: ami-25110f45
 Resources:
   MyInstance:
     Type: "AWS::EC2::Instance"
     Properties:
-      ImageId: "ami-e251209a"
+      ImageId: !FindInMap
+        - RegionMap
+        - !Ref 'AWS::Region"
+        - AMI
       KeyName: "imsubbu"
       InstanceType: "t2.micro"
       BlockDeviceMappings:
