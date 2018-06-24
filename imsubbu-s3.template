@@ -9,4 +9,11 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
-        
+      Tags:
+        -
+          Key: Name 
+          Value: imsubbu
+        -
+          Key: createdon
+          Value: 06-24-2018
+          
