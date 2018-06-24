@@ -28,3 +28,7 @@ Resources:
         -
           Key: "JobTrigger"
           Value: "Jenkins Trigger"
+        - 
+          Key: JoinDetails
+          Value: !Join [ " ", [EC2, Instance, with, Fn, Join ] ]
+          
