@@ -74,7 +74,7 @@ Resources:
     Type: "AWS::EC2::SecurityGroup"
     Properties:
       GroupDescription: Enable SSH access
-      GroupName: "TestSecurityGroup"
+      GroupName: "TestWebserverSecurityGroup"
       SecurityGroupIngress:
         - 
           IpProtocol: "tcp"
