@@ -12,6 +12,25 @@ Mappings:
 Resources:
   MyInstance:
     Type: "AWS::EC2::Instance"
+    Metadata:
+      AWS::CloudFormation::Init:
+        config:
+          packages:
+            yum:
+              httpd: []
+          files:
+            /var/www/html/index.html:
+              content:
+                !Sub |
+                  <html><body> This is test webpage </body></html>
+              mode: '000644'
+              owner: root
+              group: root
+          services:
+            sysvinit:
+              httpd:
+                enabled: true
+                ensureRunning: true
     Properties:
       ImageId: !FindInMap [ RegionMap, !Ref "AWS::Region", AMI ]
       KeyName: "imsubbu"
@@ -37,8 +56,20 @@ Resources:
         - 
           Key: JoinDetails
           Value: !Join [ " ", [EC2, Instance, with, Fn, Join ] ]
-      SecurityGroups:
-        - !Ref MysecurityGroup
+      NetworkInterfaces:
+        - Groupset:
+            - !Ref MysecurityGroup
+          AssociatePublicIpAddress: true
+          DeviceIndex: 0
+          DeleteOnTermination: true
+      UserData:
+        'Fn::Base64':
+          !Sub |
+            #!/bin/bash -xe
+            #ensure AWS cfn bootstrap is the latest
+            yum install -y aws-cfn-bootstrap
+            # install the files and packages from Metadata
+            /op/aws/bin/cfn-init -v --stack ${AWS::StackNName}  --resource MyInstance  --region ${AWS::Region}
   MysecurityGroup:
     Type: "AWS::EC2::SecurityGroup"
     Properties:
@@ -50,6 +81,11 @@ Resources:
           FromPort: "22"
           ToPort: "22"
           CidrIp: "107.77.213.137/32"
+        -
+          IpProtocol: "tcp"
+          FromPort: "80"
+          ToPort: "80"
+          CidrIp: "0.0.0.0/0"
 Outputs:
   ServerDns:
     Value: !GetAtt
