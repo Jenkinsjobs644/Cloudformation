@@ -6,17 +6,14 @@ Parameters:
 Mappings:
   RegionMap:
     us-west-2: 
-      AMI: ami-e251209a
+      AMI: "ami-e251209a"
     us-west-1: 
-      AMI: ami-25110f45
+      AMI: "ami-25110f45"
 Resources:
   MyInstance:
     Type: "AWS::EC2::Instance"
     Properties:
-      ImageId: !FindInMap
-        - RegionMap
-        - !Ref 'AWS::Region"
-        - AMI
+      ImageId: !FindInMap [ RegionMap, !Ref "AWS::Region", AMI ]
       KeyName: "imsubbu"
       InstanceType: "t2.micro"
       BlockDeviceMappings:
@@ -48,7 +45,8 @@ Resources:
       GroupDescription: Enable SSH access
       GroupName: "TestSecurityGroup"
       SecurityGroupIngress:
-        - IpProtocol: "tcp"
+        - 
+          IpProtocol: "tcp"
           FromPort: "22"
           ToPort: "22"
           CidrIp: "107.77.213.137/32"
