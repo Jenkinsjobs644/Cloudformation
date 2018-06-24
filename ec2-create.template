@@ -56,12 +56,14 @@ Resources:
         - 
           Key: JoinDetails
           Value: !Join [ " ", [EC2, Instance, with, Fn, Join ] ]
-      NetworkInterfaces:
-          -
-            GroupSet: [ !Ref MysecurityGroup ]
-            AssociatePublicIpAddress: true
-            DeviceIndex: 0
-            DeleteOnTermination: true
+      SecurityGroup:
+        - !Ref MysecurityGroup
+ #     NetworkInterfaces:
+ #         -
+ #           GroupSet: [ !Ref MysecurityGroup ]
+ #           AssociatePublicIpAddress: true
+ #           DeviceIndex: 0
+ #           DeleteOnTermination: true
       UserData:
         'Fn::Base64':
           !Sub |
