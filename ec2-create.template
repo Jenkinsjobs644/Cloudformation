@@ -25,3 +25,6 @@ Resources:
         -
           Key: "Created"
           Value: !Ref pCreationDate
+        -
+          Key: "JobTrigger"
+          Value: "Jenkins"
