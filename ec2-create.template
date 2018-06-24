@@ -69,7 +69,7 @@ Resources:
             #ensure AWS cfn bootstrap is the latest
             yum install -y aws-cfn-bootstrap
             # install the files and packages from Metadata
-            /op/aws/bin/cfn-init -v --stack ${AWS::StackNName}  --resource MyInstance  --region ${AWS::Region}
+            /op/aws/bin/cfn-init -v --stack ${AWS::StackName}  --resource MyInstance  --region ${AWS::Region}
   MysecurityGroup:
     Type: "AWS::EC2::SecurityGroup"
     Properties:
