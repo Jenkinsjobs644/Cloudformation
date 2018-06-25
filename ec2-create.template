@@ -83,7 +83,7 @@ Resources:
           IpProtocol: "tcp"
           FromPort: "22"
           ToPort: "22"
-          CidrIp: "107.77.213.137/32"
+          CidrIp: "0.0.0.0/0"
         -
           IpProtocol: "tcp"
           FromPort: "80"
