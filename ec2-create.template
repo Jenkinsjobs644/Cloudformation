@@ -56,7 +56,7 @@ Resources:
         - 
           Key: JoinDetails
           Value: !Join [ " ", [EC2, Instance, with, Fn, Join ] ]
-      SecurityGroup:
+      SecurityGroups:
         - !Ref MysecurityGroup
  #     NetworkInterfaces:
  #         -
